@@ -34,7 +34,7 @@ class MazeSolver:
 
         queue.append((start, []))
         
-        while len(queue) != 0:
+        while queue:
             ((x, y), path) = queue.pop(0)
             cur_path = path + [(x ,y)] 
             visited.add((x, y))
@@ -50,6 +50,31 @@ class MazeSolver:
             for v in neighbors.values():
                 if v not in visited and MazeSolver.is_valid_location(v, maze): 
                     queue.append((v, cur_path))
+        return -1
+
+    def dfs_maze_solver(start, end, maze):
+        """docstring"""
+        stack = []
+        visited = set()
+
+        stack.append((start, []))
+
+        while stack:
+            ((x, y), path) = stack.pop(-1)
+            cur_path = path + [(x, y)]
+            visited.add((x, y))
+            if (x, y) == end:
+                return cur_path
+
+            neighbors = {
+                "up" : (x, y-1),
+                "down" : (x, y+1),
+                "left" : (x-1, y),
+                "right" : (x+1, y)
+            }
+            for v in neighbors.values():
+                if v not in visited and MazeSolver.is_valid_location(v, maze):
+                    stack.append((v, cur_path))
         return -1
 
     def print_path(path, maze):
