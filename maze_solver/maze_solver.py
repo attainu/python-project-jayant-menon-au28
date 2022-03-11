@@ -77,6 +77,12 @@ class MazeSolver:
                     stack.append((v, cur_path))
         return -1
 
+    def solve_maze(start, end, maze, algo):
+        if algo.lower() == "dfs":
+            return MazeSolver.dfs_maze_solver(start, end, maze)
+        else:
+            return MazeSolver.bfs_maze_solver(start, end, maze)
+
     def print_path(path, maze):
         """
         docstring
