@@ -1,3 +1,6 @@
+import argparse
+
+
 class FileOps:
     """
     1. access file in input dir 
@@ -23,7 +26,7 @@ class FileOps:
     def write_output_file(maze, path):
         """docstring"""
         if path == -1:
-            with open("output/solution.txt", "w") as file:
+            with open(f"output/", "w") as file:
                 file.write("-1")
             return
 
