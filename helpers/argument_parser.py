@@ -21,9 +21,9 @@ class ArgumentParser:
         parser.add_argument("-o", "--outputfile", default="output.txt", help="output\
             filename. Will be generated to .output folder.")
         parser.add_argument("-a", "--algorithm", default="BFS", help="choose\
-            # an algorithm (BFS or DFS)")
+            an algorithm (BFS or DFS)")
         
         args = parser.parse_args()
         infile, outfile = ArgumentParser.modify_dir(args.inputfile, args.outputfile)        
         
-        return infile, outfile
+        return infile, outfile, args.algorithm
