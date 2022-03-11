@@ -20,7 +20,7 @@ class ArgumentParser:
             filename. Please ensure file is in .input folder.")
         parser.add_argument("-o", "--outputfile", default="output.txt", help="output\
             filename. Will be generated to .output folder.")
-        # parser.add_argument("-a", "--algorithm", default="BFS", help="choose\
+        parser.add_argument("-a", "--algorithm", default="BFS", help="choose\
             # an algorithm (BFS or DFS)")
         
         args = parser.parse_args()
