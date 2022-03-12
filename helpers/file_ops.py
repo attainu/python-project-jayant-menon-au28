@@ -1,14 +1,14 @@
 class FileOps:
     """
-    docstring
+    A class to perform file operations 
     """
     def read_file(file_path):
-        """docstring"""
+        """reads input file and returns list of strings"""
         with open(file_path, "r") as file:
             return file.readlines() 
 
-    def write_output_file(maze, path, outfile):
-        """docstring"""
+    def write_out_file(maze, path, outfile):
+        """writes solved maze as outfile"""
         if path == -1:
             with open(f"{outfile}", "w") as file:
                 file.write("-1")
@@ -19,11 +19,11 @@ class FileOps:
             x, y = location
             solved_maze[x][y] = 1
 
-        string = ""
+        lines = ""
         for row in solved_maze:
             for digit in row:
-                string += str(digit) + " "
-            string += '\n'
+                lines += str(digit) + " "
+            lines += '\n'
 
         with open(f"{outfile}", "w") as file:
-            file.writelines(string)
+            file.writelines(lines)

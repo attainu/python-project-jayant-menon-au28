@@ -2,16 +2,16 @@ import argparse
 
 class ArgumentParser:
     """ 
-    docstring
+    A class to parse command line arguments 
     """
     def modify_dir(infile, outfile):
-        """docstring"""
-        infile = "input/" + infile
-        outfile = "output/" + outfile
-        return infile, outfile
+        """appends working directories to user input"""
+        infile_path = "input/" + infile
+        outfile_path = "output/" + outfile
+        return infile_path, outfile_path
     
     def take_input():
-        """docstring"""
+        """takes and returns input, output and algo arguments from the user"""
         parser = argparse.ArgumentParser(description="Find a path in a rat maze.\
             Takes .txt maze input, outputs .txt solved path")
 
@@ -24,6 +24,6 @@ class ArgumentParser:
             an algorithm (BFS or DFS)")
         
         args = parser.parse_args()
-        infile, outfile = ArgumentParser.modify_dir(args.inputfile, args.outputfile)        
+        infile_path, outfile_path = ArgumentParser.modify_dir(args.inputfile, args.outputfile)        
         
-        return infile, outfile, args.algorithm
+        return infile_path, outfile_path, args.algorithm

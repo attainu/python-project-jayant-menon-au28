@@ -1,11 +1,9 @@
 class MazeSolver:
     """
-    docstring
+    A class that contains the maze solving logic and helper functions
     """
     def is_valid_location(location, maze):
-        """
-        docstring
-        """
+        """checks if the coordinates are valid to move to"""
         rows = len(maze)
         columns = len(maze[0])
         (x, y) = location
@@ -14,7 +12,7 @@ class MazeSolver:
         return False
 
     def bfs_maze_solver(start, end, maze):
-        """docstring"""
+        """solves the maze using a breadth first approach"""
         queue = []
         visited = set()   
 
@@ -39,7 +37,7 @@ class MazeSolver:
         return -1
 
     def dfs_maze_solver(start, end, maze):
-        """docstring"""
+        """solves the maze using a depth first approach"""
         stack = []
         visited = set()
 
@@ -64,15 +62,14 @@ class MazeSolver:
         return -1
 
     def solve_maze(start, end, maze, algo):
+        """calls the appropriate method as per user input"""
         if algo.lower() == "dfs":
             return MazeSolver.dfs_maze_solver(start, end, maze)
         else:
             return MazeSolver.bfs_maze_solver(start, end, maze)
 
     def print_path(path, maze):
-        """
-        docstring
-        """
+        """prints the solved path to console"""
         solved_maze = [[0 for _ in range(len(maze[0]))] for _ in range(len(maze))]
         
         for location in path:
@@ -81,4 +78,3 @@ class MazeSolver:
         
         for i in range(len(maze)):
             print(*solved_maze[i])
-
